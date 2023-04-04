@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Token {
-    //mytoken class
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

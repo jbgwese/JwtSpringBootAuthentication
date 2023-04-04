@@ -35,10 +35,10 @@ jobs:
       - name: Create Database
         image: postgres:13-alpine
         env:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
-        POSTGRES_DB: assignment
-        command: ["createdb", "postgres"]
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: assignment
+          command: ["createdb", "postgres"]
 
 
 

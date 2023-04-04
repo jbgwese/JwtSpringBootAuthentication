@@ -18,9 +18,34 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: 17
-#
-#      - name: Unit Tests
-#        run: mvn -B test --file pom.xml
+
+
+      - name: Setup Docker
+        image: docker/compose:1.29.2
+        command: [docker-compose, -f, docker-compose.ci.yml, up, -d]
+
+      - name: Download Postgres
+        image: postgres:13-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: assignment
+          command: ["postgres"]
+
+      - name: Create Database
+        image: postgres:13-alpine
+        env:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: assignment
+        command: ["createdb", "mydb"]
+
+#        - name: Build and Test Spring Boot App
+#              image: maven:3.6.3-jdk
+
+
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
 
       - name: Build the application
         run: |

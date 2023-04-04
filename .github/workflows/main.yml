@@ -19,17 +19,6 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-      - name: Connect to PostgreSQL
-        env:
-        # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: postgres
-        # The default PostgreSQL port
-          POSTGRES_PORT: 5432
-
-
-#        - name: Build and Test Spring Boot App
-#              image: maven:3.6.3-jdk
-
       - name: Unit Tests
         run: mvn -B test --file pom.xml
 

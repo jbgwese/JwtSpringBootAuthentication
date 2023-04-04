@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Token {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String token;
     @Enumerated(EnumType.STRING)

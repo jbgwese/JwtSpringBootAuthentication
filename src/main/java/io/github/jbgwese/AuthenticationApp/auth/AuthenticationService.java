@@ -61,7 +61,7 @@ public class AuthenticationService {
         );
 
         var user = userRepository.
-                findByUsername(request.getEmail())
+                findByEmail(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("No such User"));
 
         revokeAllUserTokens(user);

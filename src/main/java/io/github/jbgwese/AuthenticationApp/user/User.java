@@ -2,10 +2,7 @@ package io.github.jbgwese.AuthenticationApp.user;
 
 import io.github.jbgwese.AuthenticationApp.token.Token;
 import io.github.jbgwese.AuthenticationApp.user.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,9 +18,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "_user")
+@Entity
+@Table(name = "_user")
 public class User implements UserDetails {
-
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;

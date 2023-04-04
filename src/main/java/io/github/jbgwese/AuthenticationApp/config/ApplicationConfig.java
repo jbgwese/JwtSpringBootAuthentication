@@ -3,6 +3,7 @@ package io.github.jbgwese.AuthenticationApp.config;
 import io.github.jbgwese.AuthenticationApp.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,9 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.security.AuthProvider;
-
-@Component
+@Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
     private final UserRepository userRepository;
@@ -23,7 +22,7 @@ public class ApplicationConfig {
     @Bean
     public UserDetailsService userDetailsService(){
         return  username -> userRepository
-                .findByUsername(username)
+                .findByEmail(username)
                 .orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
     }
 
@@ -40,8 +39,8 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
-@Bean
+    @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
-}
+    }
 }

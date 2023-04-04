@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Configuration
 @RequiredArgsConstructor
 public class LogoutService implements LogoutHandler {
-private final AuthenticationService authenticationService;
 private final TokenRepository tokenRepository;
 
     @Override

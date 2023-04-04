@@ -9,6 +9,14 @@ jobs:
   build-deploy:
     name: Build and Deploy JwtSpringBootAuthentication
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: p@$$w0rd
+          POSTGRES_DB: assignment
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

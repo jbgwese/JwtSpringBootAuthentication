@@ -35,13 +35,6 @@ jobs:
         ports:
           - "5050:80"
 
-
-
-
-      networks:
-        postgres:
-          driver: bridge
-
       volumes:
         postgres:
         pgadmin:

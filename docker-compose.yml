@@ -1,0 +1,18 @@
+services:
+  app:
+    container_name: authentication-app
+    image: authentication-app
+    build: ./
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: assignment

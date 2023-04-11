@@ -25,8 +25,8 @@ jobs:
           docker pull postgres:latest
           docker run --name my_postgres -e POSTGRES_USER=job -e POSTGRES_PASSWORD=password -d postgres
       - name: Test Connection
-          run: |
-            docker exec -it my_postgres psql -U job -c "SELECT version();"
+        run: |
+          docker exec -it my_postgres psql -U job -c "SELECT version();"
 
 
       - name: Build the application

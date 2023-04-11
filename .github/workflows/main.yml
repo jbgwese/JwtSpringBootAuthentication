@@ -10,6 +10,74 @@ jobs:
     name: Build and Deploy JwtSpringBootAuthentication
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: job
+          POSTGRES_PASSWORD: password
+          PGDATA: /data/postgres
+        volumes:
+          - postgres:/data/postgres
+        ports:
+          - "5432:5432"
+        networks:
+          - postgres
+        restart: unless-stopped
+
+      pgadmin:
+        image: dpage/pgadmin4
+        env:
+          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+          PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+          PGADMIN_CONFIG_SERVER_MODE: 'False'
+        volumes:
+          - pgadmin:/var/lib/pgadmin
+
+        ports:
+          - "5050:80"
+        networks:
+          - postgres
+        restart: unless-stopped
+
+      networks:
+        postgres:
+          driver: bridge
+
+      volumes:
+        postgres:
+        pgadmin:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,10 +91,7 @@ jobs:
       - name: Set up PostgreSQL
         run: |
           docker pull postgres:latest
-          docker run --name my_postgres -e POSTGRES_USER=job -e POSTGRES_PASSWORD=password -p 5432 -d postgres
-#      - name: Test Connection
-#        run: |
-#          docker exec -it my_postgres psql -U job -c "SELECT version();"
+          docker run --name  -e POSTGRES_USER=job -e POSTGRES_PASSWORD=password -p 5432 -d postgres
 
 
       - name: Build the application

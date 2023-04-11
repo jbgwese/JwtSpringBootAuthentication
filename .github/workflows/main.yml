@@ -34,10 +34,15 @@ jobs:
 
         ports:
           - "5050:80"
+#        networks:
+#          - postgres
+#        restart: unless-stopped
 
-      volumes:
-        postgres:
-        pgadmin:
+        networks:
+          postgres:
+            driver: bridge
+
+
 
 
 

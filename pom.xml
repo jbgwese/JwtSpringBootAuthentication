@@ -82,6 +82,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<filters></filters>
 	</build>
 
 </project>

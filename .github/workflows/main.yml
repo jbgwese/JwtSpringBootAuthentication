@@ -21,9 +21,7 @@ jobs:
           - postgres:/data/postgres
         ports:
           - "5432:5432"
-#        networks:
-#          - postgres
-#        restart: unless-stopped
+
 
       pgadmin:
         image: dpage/pgadmin4
@@ -36,9 +34,9 @@ jobs:
 
         ports:
           - "5050:80"
-#        networks:
-#          - postgres
-#        restart: unless-stopped
+
+
+
 
       networks:
         postgres:

@@ -27,7 +27,7 @@ jobs:
       pgadmin:
         image: dpage/pgadmin4
         env:
-          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-jbgwese@gmail.com}
           PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
           PGADMIN_CONFIG_SERVER_MODE: 'False'
         volumes:

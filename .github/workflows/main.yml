@@ -38,9 +38,9 @@ jobs:
 #          - postgres
 #        restart: unless-stopped
 
-        networks:
-          postgres:
-            driver: bridge
+#        networks:
+#          postgres:
+#            driver: bridge
 
 
 

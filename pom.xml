@@ -82,7 +82,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
+		<finalName>spring-jwt-authentication</finalName>
 	</build>
 
 </project>

@@ -11,16 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      postgres:
+      postgresdb:
         image: postgres
         env:
           POSTGRES_USER: job
           POSTGRES_PASSWORD: password
+          POSTGRES_DB: postgres
           PGDATA: /data/postgres
         volumes:
           - postgres:/data/postgres
         ports:
-          - "5432:5432"
+          - 5432/tcp
 
 
       pgadmin:
@@ -33,46 +34,7 @@ jobs:
           - pgadmin:/var/lib/pgadmin
 
         ports:
-          - "5050:80"
-#        networks:
-#          - postgres
-#        restart: unless-stopped
-
-#        networks:
-#          postgres:
-#            driver: bridge
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          - 5050/tcp
 
     steps:
       - name: Checkout code

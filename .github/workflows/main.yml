@@ -64,7 +64,7 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jwtSpringBootAuthentication:today
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jwt-springboot-authentication:today
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -77,4 +77,4 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jwtSpringBootAuthentication:today
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/jwt-springboot-authentication:today

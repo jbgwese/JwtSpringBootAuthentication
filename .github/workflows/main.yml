@@ -46,10 +46,10 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-      - name: Set up PostgreSQL
-        run: |
-          docker pull postgres:latest
-          docker run --name  -e POSTGRES_USER=job -e POSTGRES_PASSWORD=password -p 5432 -d postgres
+#      - name: Set up PostgreSQL
+#        run: |
+#          docker pull postgres:latest
+#          docker run --name  -e POSTGRES_USER=job -e POSTGRES_PASSWORD=password -p 5432 -d postgres
 
 
       - name: Build the application

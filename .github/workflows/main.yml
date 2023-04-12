@@ -23,7 +23,7 @@ jobs:
         ports:
           - 5432/tcp
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
-
+      command: postgres -D /data/postgres -c 'config_file=/etc/postgresql/postgresql.conf' -d
 #      pgadmin:
 #        image: dpage/pgadmin4
 #        env:

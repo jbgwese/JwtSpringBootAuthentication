@@ -24,18 +24,17 @@ jobs:
           - 5432:5432
 
 
-#      pgadmin:
-#        image: dpage/pgadmin4
-#        env:
-#          PGADMIN_DEFAULT_EMAIL: jbgwese@gmail.com
-#          PGADMIN_DEFAULT_PASSWORD: password
-#          PGADMIN_CONFIG_SERVER_MODE: 'False'
-#        volumes:
-#          - pgadmin:/var/lib/pgadmin
-#
-#        ports:
-#          - 5050/tcp
-#        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+      pgadmin:
+        image: dpage/pgadmin4
+        env:
+          PGADMIN_DEFAULT_EMAIL: jbgwese@gmail.com
+          PGADMIN_DEFAULT_PASSWORD: password
+          PGADMIN_CONFIG_SERVER_MODE: 'False'
+        volumes:
+          - pgadmin:/var/lib/pgadmin
+
+        ports:
+          - 5050:5050
 
     steps:
       - name: Checkout code

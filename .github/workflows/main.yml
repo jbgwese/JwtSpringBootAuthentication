@@ -22,7 +22,7 @@ jobs:
           - postgres:/data/postgres
         ports:
           - 5432/tcp
-        options: --detach --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+        options: --detach
 
 #      pgadmin:
 #        image: dpage/pgadmin4

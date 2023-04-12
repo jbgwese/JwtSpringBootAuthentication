@@ -22,7 +22,7 @@ jobs:
           - postgres:/data/postgres
         ports:
           - 5432:5432
-        options: --detach
+
 
 #      pgadmin:
 #        image: dpage/pgadmin4

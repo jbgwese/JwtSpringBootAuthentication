@@ -1,3 +1,17 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
@@ -5,35 +19,15 @@
 *.iml
 *.ipr
 
-
-/target/
-!/target/*.jar
-# Gradle files
-.gradle/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 build/
-# Maven files
-log/
-target/
-*.log
-*.log.*
-*.pid
-*.seed
-*.log.xml
-*.out
-*.replay
-.idea/
-*.iml
-*.ipr
-*.iws
-# Eclipse project files
-.settings/
-.classpath
-.project
-.metadata/
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
